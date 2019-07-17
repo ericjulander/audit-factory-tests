@@ -29,7 +29,7 @@ namespace ProcessTests
                     // AuditTools.HasDuplicate<Location>(locations,true)
                 };
                 
-                StatusCollection results = AuditRunner.RunAudits<Location>(location.Name,location,auditz);
+                StatusCollection results = AuditRunner.RunAudits<Location>(location.Name /*Name for result collections*/,location /* Object to run audits on*/, auditz /* Audits to run */);
                 
                 ConsoleReport.ConsoleRep.Log("Showing Audit Results for the Audit: "+results.CollectionTitle, ConsoleColor.DarkMagenta, ConsoleColor.DarkYellow);
                 foreach(var result in results.StatusObjects){
