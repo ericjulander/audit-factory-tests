@@ -108,10 +108,10 @@ namespace Auditor
 
     public class StatusCollection
     {
-       /*
-        * Status Title
-        * Title of the process run.
-        */
+        /*
+         * Status Title
+         * Title of the process run.
+         */
         private string _collectionTitle;
         public string CollectionTitle
         {
@@ -125,13 +125,15 @@ namespace Auditor
             }
         }
 
-        public List<StatusObject> StatusObjects {get;set;}
+        public List<StatusObject> StatusObjects { get; set; }
 
-        public StatusCollection(string title){
+        public StatusCollection(string title)
+        {
             _collectionTitle = title;
-            StatusObjects = new List<StatusObject> ();
+            StatusObjects = new List<StatusObject>();
         }
-        public StatusCollection(string title, List<StatusObject>  statusObjects){
+        public StatusCollection(string title, List<StatusObject> statusObjects)
+        {
             _collectionTitle = title;
             StatusObjects = statusObjects;
         }

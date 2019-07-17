@@ -19,4 +19,13 @@ namespace Locations{
             Rating = rating;
         }
     }
+
+    public class TouristHotspot : Location
+    {
+        public string HoursOfOperation;
+        public TouristHotspot(string name, Coordinate coordinates, decimal rating, string HoursOfOperation) : base(name, coordinates, rating)
+        {
+            this.HoursOfOperation = HoursOfOperation;
+        }
+    }
 }

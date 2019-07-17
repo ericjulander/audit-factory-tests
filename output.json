@@ -1,0 +1,27 @@
+[{
+    "id": 44664,
+    "name": "Doomed to Fail",
+    "role": null,
+    "self_signup": null,
+    "group_limit": null,
+    "auto_leader": null,
+    "context_type": "Course",
+    "course_id": 59796,
+    "sis_group_category_id": null,
+    "protected": false,
+    "allows_multiple_memberships": false,
+    "is_member": false
+}, {
+    "id": 44662,
+    "name": "Super Important Mandatory Thing",
+    "role": null,
+    "self_signup": null,
+    "group_limit": null,
+    "auto_leader": "random",
+    "context_type": "Course",
+    "course_id": 59796,
+    "sis_group_category_id": null,
+    "protected": false,
+    "allows_multiple_memberships": false,
+    "is_member": false
+}]

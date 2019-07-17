@@ -102,55 +102,6 @@ namespace Auditor.AuditTools
         }
 
 
-        public static AuditRunner.AuditMethod<T> HasDuplicate<T>(List<T> ObjectsToCompare, bool ListIncludesSelf)
-        {
-            var results = new List<StatusObject>();
-            return (object1) =>
-            {
-                var matches = 0;
-                var fields = object1.GetType().GetFields();
-                var properties = object1.GetType().GetProperties();
-                foreach (var object2 in ObjectsToCompare)
-                {
-                    var fieldMatches = 0;
-                    foreach (var field in fields)
-                    {
-                        if (field.GetValue(object1) != (field.GetValue(object2)))
-                        {
-                            System.Console.WriteLine(field.GetValue(object1) == (field.GetValue(object2)));
-                            foreach(var prop in field.GetValue(object1).GetType().GetFields())
-                                try{
-                                System.Console.WriteLine(prop.GetValue(field.GetValue(object1)).ToString()+" ------ "+prop.GetValue(field.GetValue(object2)).ToString());
-                                System.Console.WriteLine(prop.GetValue(field.GetValue(object1)).ToString()==prop.GetValue(field.GetValue(object2)).ToString());
-                                }catch(Exception e){}
-                            fieldMatches++;
-                        }
-
-                    }
-                   
-                    var propertyMatches = 0;
-                    foreach (var property in properties)
-                    {
-                        if (property.GetValue(object1) == (property.GetValue(object2)))
-                        {
-                            System.Console.WriteLine(property.GetValue(object1).ToString(), (property.GetValue(object2)).ToString());
-                            propertyMatches++;
-                        }
-
-                    }
-
-                        System.Console.WriteLine($"{object1.GetType().GetField("Name").GetValue(object2)}  -  {propertyMatches} / {properties.Length}  , {fieldMatches} / {fields.Length}");
-                    if (fieldMatches == fields.Length && propertyMatches == properties.Length){
-                        matches++;
-                    }
-
-                }
-                // if(ListIncludesSelf)
-                //     matches--;
-                System.Console.WriteLine("MATCHES: " + matches);
-                return PipeResults(results);
-            };
-        }
     }
 
 }
